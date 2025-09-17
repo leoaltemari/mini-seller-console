@@ -1,7 +1,32 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@pages": ["./src/app/pages"],
+      "@pages/*": ["./src/app/pages/*"],
+      "@components": ["./src/app/shared/components"],
+      "@components/*": ["./src/app/shared/components/*"],
+      "@models": ["src/app/shared/models"],
+      "@models/*": ["src/app/app/shared/models/*"],
+      "@services": ["src/app/shared/services"],
+      "@services/*": ["src/app/shared/services/*"],
+      "@utils": ["./src/app/shared/utils"],
+      "@utils/*": ["./src/app/shared/utils/*"],
+      "@env": ["./src/environments"],
+      "@env/*": ["./src/environments/*"]
+    }
+  },
+  "include": ["src"]
 }

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "L-001",
+    "name": "Alice Silva",
+    "company": "Acme Corp",
+    "email": "alice@acme.com",
+    "source": "Website",
+    "score": 82,
+    "status": "New"
+  },
+  {
+    "id": "L-002",
+    "name": "Bob Santos",
+    "company": "Beta LLC",
+    "email": "bob@beta.io",
+    "source": "Referral",
+    "score": 67,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-003",
+    "name": "Carla Souza",
+    "company": "Gamma SA",
+    "email": "carla@gamma.com",
+    "source": "Ad",
+    "score": 91,
+    "status": "New"
+  },
+  {
+    "id": "L-004",
+    "name": "Diego Costa",
+    "company": "Delta Ltd",
+    "email": "diego@delta.net",
+    "source": "Event",
+    "score": 45,
+    "status": "Lost"
+  }
+]
