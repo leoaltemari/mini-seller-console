@@ -11,21 +11,16 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@pages": ["./src/app/pages"],
-      "@pages/*": ["./src/app/pages/*"],
-      "@components": ["./src/app/shared/components"],
-      "@components/*": ["./src/app/shared/components/*"],
-      "@models": ["src/app/shared/models"],
-      "@models/*": ["src/app/app/shared/models/*"],
-      "@services": ["src/app/shared/services"],
-      "@services/*": ["src/app/shared/services/*"],
-      "@utils": ["./src/app/shared/utils"],
-      "@utils/*": ["./src/app/shared/utils/*"],
-      "@env": ["./src/environments"],
-      "@env/*": ["./src/environments/*"]
+      "@pages/*": ["src/pages/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@context/*": ["src/context/*"],
+      "@components/*": ["src/components/*"],
+      "@services/*": ["src/services/*"],
+      "@models/*": ["src/shared/models/*"],
+      "@constants/*": ["src/shared/constants/*"],
+      "@utils/*": ["src/shared/utils/*"]
     }
   },
   "include": ["src"]
