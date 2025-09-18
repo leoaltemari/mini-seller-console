@@ -22,11 +22,20 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
     setTimeout(() => setVisible(!!lead));
   }, [lead]);
 
+  function handleEmailChange(email: string) {
+    if (!draft) return;
+
+    setDraft({ ...draft, email });
+
+    if (email && !isValidEmail(email)) {
+      setError('Invalid email format');
+    }
+  }
+
   async function handleSave(): Promise<void> {
     setError(null);
 
-    if (!draft || !isValidEmail(draft.email)) {
-      setError('Invalid email format');
+    if (!draft || error) {
       return;
     }
 
@@ -35,7 +44,9 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
     try {
       await onSave(draft);
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Failed to save');
+      const message = e instanceof Error ? e.message : 'Failed to save';
+      setError(message);
+      setTimeout(() => setError(null), 3000);
     } finally {
       setSaving(false);
     }
@@ -60,7 +71,6 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
           ${visible ? 'translate-x-0' : 'translate-x-full'}
         `}
       >
-        {/* Header */}
         <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
           {draft.name}{' '}
           <span className="text-sm text-gray-500">({draft.id})</span>
@@ -78,7 +88,7 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
                 focus:ring-2 focus:ring-blue-500 focus:border-blue-500
               "
               value={draft.email}
-              onChange={(e) => setDraft({ ...draft, email: e.target.value })}
+              onChange={(e) => handleEmailChange(e.target.value)}
             />
           </div>
 
@@ -112,7 +122,7 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
                 text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50
               "
               onClick={handleSave}
-              disabled={saving}
+              disabled={saving || !!error}
             >
               Save
             </button>
@@ -135,7 +145,7 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
                 cursor-pointer ml-auto px-4 py-2 text-sm font-medium rounded-lg bg-blue-600
                 text-white shadow-smhover:bg-blue-700 active:bg-blue-800 disabled:opacity-50
               "
-              onClick={() => onConvert(draft, draft.company)}
+              onClick={() => onConvert(draft, draft.email)}
             >
               Convert Lead
             </button>
@@ -148,7 +158,7 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
               ${error ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}
             `}
           >
-            {error ?? ''}
+            { error }
           </div>
         </div>
       </div>

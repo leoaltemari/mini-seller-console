@@ -2,7 +2,7 @@ import { useOpportunities } from '@context/OpportunitiesContext';
 import { useLocalStorage } from '@hooks/useLocalStorage';
 import { Lead, LeadPreferences } from '@models/leads';
 import { PaginationParams } from '@models/pagination';
-import { fetchLeads, saveSingleLead } from '@services/leadsService';
+import { getLeads, saveSingleLead } from '@services/leadsService';
 
 import { useEffect, useState } from 'react';
 
@@ -60,9 +60,9 @@ export function useFetchLeads(pagination: PaginationParams = {}) {
   useEffect(() => {
     setLoading(true);
 
-    fetchLeads(pagination)
+    getLeads(pagination)
       .then(({ data, total }) => {
-        setLeads(data);
+        setLeads(previusLeads => [...previusLeads, ...data]);
         setHasMore(data.length > 0 && data.length < total);
       })
       .catch(e => setError((e as Error).message))
@@ -108,7 +108,7 @@ export function useFetchLeads(pagination: PaginationParams = {}) {
       name: lead.name,
       stage: 'Prospecting',
       amount,
-      accountName: accountName || lead.company,
+      accountName: accountName || lead.email,
     });
 
     /** Changes only the lead that was converted into opportunity */

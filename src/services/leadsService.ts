@@ -4,18 +4,18 @@ import { PaginationParams } from '@models/pagination';
 import { simulateFailure } from '@utils/simulateFailure';
 
 /**
- * Function to simulate an API call to fetch leads data.
+ * Function to simulate an API call to fetch leads data with Pagination.
  * @param param0 Pagination parameters `{ page, pageSize }`
  * @returns A promise that resolves to a paginated response of leads.
  */
-export async function fetchLeads({
+export async function getLeads({
   page = 1,
   pageSize = 20,
 }: PaginationParams = {}): Promise<LeadsResponse> {
-  console.log('Fetching leads...', { page, pageSize });
   return new Promise((resolve, reject) => {
     setTimeout(async () => {
       try {
+        /** Simulates an HTTP request with pagination, but will always bring all items when using a .json file as DB */
         const response = await fetch('/leads.json');
 
         if (!response.ok) {
@@ -27,7 +27,7 @@ export async function fetchLeads({
 
         const start = (page - 1) * pageSize;
         const end = start + pageSize;
-        const leads = allLeads.slice(0, end);
+        const leads = allLeads.slice(start, end);
 
         resolve({ data: leads, total });
       } catch {
