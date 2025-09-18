@@ -1,5 +1,5 @@
 import { Lead, LeadStatus } from '@models/leads';
-import { isValidEmail } from '@utils/validateEmail';
+import { isValidEmail } from '@utils/validators';
 
 import { useEffect, useState } from 'react';
 
