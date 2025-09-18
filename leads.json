@@ -1,0 +1,902 @@
+[
+  {
+    "id": "L-001",
+    "name": "Alice Silva",
+    "company": "Acme Corp",
+    "email": "alice@acme.com",
+    "source": "Website",
+    "score": 82,
+    "status": "New"
+  },
+  {
+    "id": "L-002",
+    "name": "Bob Santos",
+    "company": "Beta LLC",
+    "email": "bob@beta.io",
+    "source": "Referral",
+    "score": 67,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-003",
+    "name": "Carla Souza",
+    "company": "Gamma SA",
+    "email": "carla@gamma.com",
+    "source": "Ad",
+    "score": 91,
+    "status": "New"
+  },
+  {
+    "id": "L-004",
+    "name": "Diego Costa",
+    "company": "Delta Ltd",
+    "email": "diego@delta.net",
+    "source": "Event",
+    "score": 45,
+    "status": "Lost"
+  },
+  {
+    "id": "L-005",
+    "name": "Eve Martins",
+    "company": "Epsilon Inc",
+    "email": "eve@epsilon.com",
+    "source": "Website",
+    "score": 78,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-006",
+    "name": "Frank Oliveira",
+    "company": "Zeta Group",
+    "email": "frank@zeta.org",
+    "source": "Referral",
+    "score": 56,
+    "status": "Lost"
+  },
+  {
+    "id": "L-007",
+    "name": "Grace Lima",
+    "company": "Eta Co",
+    "email": "grace@eta.com",
+    "source": "Ad",
+    "score": 88,
+    "status": "New"
+  },
+  {
+    "id": "L-008",
+    "name": "Hugo Pereira",
+    "company": "Theta Ltd",
+    "email": "hugo@theta.net",
+    "source": "Event",
+    "score": 62,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-009",
+    "name": "Ivy Costa",
+    "company": "Iota SA",
+    "email": "ivy@iota.com",
+    "source": "Website",
+    "score": 74,
+    "status": "New"
+  },
+  {
+    "id": "L-010",
+    "name": "Jack Silva",
+    "company": "Kappa Corp",
+    "email": "jack@kappa.com",
+    "source": "Referral",
+    "score": 81,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-011",
+    "name": "Karen Santos",
+    "company": "Lambda LLC",
+    "email": "karen@lambda.io",
+    "source": "Ad",
+    "score": 69,
+    "status": "Lost"
+  },
+  {
+    "id": "L-012",
+    "name": "Leo Souza",
+    "company": "Mu Inc",
+    "email": "leo@mu.com",
+    "source": "Event",
+    "score": 92,
+    "status": "New"
+  },
+  {
+    "id": "L-013",
+    "name": "Mia Costa",
+    "company": "Nu Ltd",
+    "email": "mia@nu.net",
+    "source": "Website",
+    "score": 85,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-014",
+    "name": "Nina Martins",
+    "company": "Xi Group",
+    "email": "nina@xi.org",
+    "source": "Referral",
+    "score": 58,
+    "status": "Lost"
+  },
+  {
+    "id": "L-015",
+    "name": "Oscar Lima",
+    "company": "Omicron Co",
+    "email": "oscar@omicron.com",
+    "source": "Ad",
+    "score": 77,
+    "status": "New"
+  },
+  {
+    "id": "L-016",
+    "name": "Paula Pereira",
+    "company": "Pi SA",
+    "email": "paula@pi.com",
+    "source": "Event",
+    "score": 64,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-017",
+    "name": "Quinn Silva",
+    "company": "Rho Corp",
+    "email": "quinn@rho.com",
+    "source": "Website",
+    "score": 89,
+    "status": "New"
+  },
+  {
+    "id": "L-018",
+    "name": "Rita Santos",
+    "company": "Sigma LLC",
+    "email": "rita@sigma.io",
+    "source": "Referral",
+    "score": 71,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-019",
+    "name": "Steve Souza",
+    "company": "Tau Inc",
+    "email": "steve@tau.com",
+    "source": "Ad",
+    "score": 66,
+    "status": "Lost"
+  },
+  {
+    "id": "L-020",
+    "name": "Tina Costa",
+    "company": "Upsilon Ltd",
+    "email": "tina@upsilon.net",
+    "source": "Event",
+    "score": 93,
+    "status": "New"
+  },
+  {
+    "id": "L-021",
+    "name": "Uma Martins",
+    "company": "Phi Group",
+    "email": "uma@phi.org",
+    "source": "Website",
+    "score": 80,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-022",
+    "name": "Victor Lima",
+    "company": "Chi Co",
+    "email": "victor@chi.com",
+    "source": "Referral",
+    "score": 59,
+    "status": "Lost"
+  },
+  {
+    "id": "L-023",
+    "name": "Wendy Pereira",
+    "company": "Psi SA",
+    "email": "wendy@psi.com",
+    "source": "Ad",
+    "score": 76,
+    "status": "New"
+  },
+  {
+    "id": "L-024",
+    "name": "Xander Silva",
+    "company": "Omega Corp",
+    "email": "xander@omega.com",
+    "source": "Event",
+    "score": 65,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-025",
+    "name": "Yara Santos",
+    "company": "Alpha LLC",
+    "email": "yara@alpha.io",
+    "source": "Website",
+    "score": 87,
+    "status": "New"
+  },
+  {
+    "id": "L-026",
+    "name": "Zane Souza",
+    "company": "Beta Inc",
+    "email": "zane@beta.com",
+    "source": "Referral",
+    "score": 68,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-027",
+    "name": "Amy Costa",
+    "company": "Gamma Ltd",
+    "email": "amy@gamma.net",
+    "source": "Ad",
+    "score": 90,
+    "status": "New"
+  },
+  {
+    "id": "L-028",
+    "name": "Brian Martins",
+    "company": "Delta Group",
+    "email": "brian@delta.org",
+    "source": "Event",
+    "score": 63,
+    "status": "Lost"
+  },
+  {
+    "id": "L-029",
+    "name": "Cindy Lima",
+    "company": "Epsilon Co",
+    "email": "cindy@epsilon.com",
+    "source": "Website",
+    "score": 84,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-030",
+    "name": "David Pereira",
+    "company": "Zeta SA",
+    "email": "david@zeta.com",
+    "source": "Referral",
+    "score": 70,
+    "status": "Lost"
+  },
+  {
+    "id": "L-031",
+    "name": "Ella Silva",
+    "company": "Eta Ltd",
+    "email": "ella@eta.net",
+    "source": "Ad",
+    "score": 79,
+    "status": "New"
+  },
+  {
+    "id": "L-032",
+    "name": "Felix Santos",
+    "company": "Theta Corp",
+    "email": "felix@theta.com",
+    "source": "Event",
+    "score": 61,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-033",
+    "name": "Gina Souza",
+    "company": "Iota LLC",
+    "email": "gina@iota.io",
+    "source": "Website",
+    "score": 75,
+    "status": "New"
+  },
+  {
+    "id": "L-034",
+    "name": "Harry Costa",
+    "company": "Kappa Inc",
+    "email": "harry@kappa.com",
+    "source": "Referral",
+    "score": 83,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-035",
+    "name": "Isla Martins",
+    "company": "Lambda Ltd",
+    "email": "isla@lambda.net",
+    "source": "Ad",
+    "score": 72,
+    "status": "Lost"
+  },
+  {
+    "id": "L-036",
+    "name": "Jake Lima",
+    "company": "Mu Group",
+    "email": "jake@mu.org",
+    "source": "Event",
+    "score": 94,
+    "status": "New"
+  },
+  {
+    "id": "L-037",
+    "name": "Kara Pereira",
+    "company": "Nu Co",
+    "email": "kara@nu.com",
+    "source": "Website",
+    "score": 86,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-038",
+    "name": "Liam Silva",
+    "company": "Xi SA",
+    "email": "liam@xi.com",
+    "source": "Referral",
+    "score": 60,
+    "status": "Lost"
+  },
+  {
+    "id": "L-039",
+    "name": "Mila Santos",
+    "company": "Omicron Ltd",
+    "email": "mila@omicron.net",
+    "source": "Ad",
+    "score": 73,
+    "status": "New"
+  },
+  {
+    "id": "L-040",
+    "name": "Noah Souza",
+    "company": "Pi Corp",
+    "email": "noah@pi.com",
+    "source": "Event",
+    "score": 95,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-041",
+    "name": "Olivia Costa",
+    "company": "Rho LLC",
+    "email": "olivia@rho.io",
+    "source": "Website",
+    "score": 82,
+    "status": "New"
+  },
+  {
+    "id": "L-042",
+    "name": "Peter Martins",
+    "company": "Sigma Inc",
+    "email": "peter@sigma.com",
+    "source": "Referral",
+    "score": 67,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-043",
+    "name": "Quincy Lima",
+    "company": "Tau Ltd",
+    "email": "quincy@tau.net",
+    "source": "Ad",
+    "score": 91,
+    "status": "New"
+  },
+  {
+    "id": "L-044",
+    "name": "Rachel Pereira",
+    "company": "Upsilon Group",
+    "email": "rachel@upsilon.org",
+    "source": "Event",
+    "score": 45,
+    "status": "Lost"
+  },
+  {
+    "id": "L-045",
+    "name": "Sam Silva",
+    "company": "Phi Co",
+    "email": "sam@phi.com",
+    "source": "Website",
+    "score": 78,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-046",
+    "name": "Tara Santos",
+    "company": "Chi SA",
+    "email": "tara@chi.com",
+    "source": "Referral",
+    "score": 56,
+    "status": "Lost"
+  },
+  {
+    "id": "L-047",
+    "name": "Ulysses Souza",
+    "company": "Psi Ltd",
+    "email": "ulysses@psi.net",
+    "source": "Ad",
+    "score": 88,
+    "status": "New"
+  },
+  {
+    "id": "L-048",
+    "name": "Vera Costa",
+    "company": "Omega Corp",
+    "email": "vera@omega.com",
+    "source": "Event",
+    "score": 62,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-049",
+    "name": "Will Martins",
+    "company": "Alpha LLC",
+    "email": "will@alpha.io",
+    "source": "Website",
+    "score": 74,
+    "status": "New"
+  },
+  {
+    "id": "L-050",
+    "name": "Xena Lima",
+    "company": "Beta Inc",
+    "email": "xena@beta.com",
+    "source": "Referral",
+    "score": 81,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-051",
+    "name": "Yuri Santos",
+    "company": "Gamma Corp",
+    "email": "yuri@gamma.com",
+    "source": "Ad",
+    "score": 85,
+    "status": "New"
+  },
+  {
+    "id": "L-052",
+    "name": "Zara Costa",
+    "company": "Delta LLC",
+    "email": "zara@delta.io",
+    "source": "Event",
+    "score": 72,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-053",
+    "name": "Alan Silva",
+    "company": "Epsilon Ltd",
+    "email": "alan@epsilon.com",
+    "source": "Website",
+    "score": 90,
+    "status": "New"
+  },
+  {
+    "id": "L-054",
+    "name": "Bella Martins",
+    "company": "Zeta Inc",
+    "email": "bella@zeta.org",
+    "source": "Referral",
+    "score": 68,
+    "status": "Lost"
+  },
+  {
+    "id": "L-055",
+    "name": "Carlos Lima",
+    "company": "Eta Co",
+    "email": "carlos@eta.com",
+    "source": "Ad",
+    "score": 77,
+    "status": "New"
+  },
+  {
+    "id": "L-056",
+    "name": "Diana Pereira",
+    "company": "Theta Group",
+    "email": "diana@theta.net",
+    "source": "Event",
+    "score": 63,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-057",
+    "name": "Ethan Costa",
+    "company": "Iota LLC",
+    "email": "ethan@iota.com",
+    "source": "Website",
+    "score": 88,
+    "status": "New"
+  },
+  {
+    "id": "L-058",
+    "name": "Fiona Santos",
+    "company": "Kappa Corp",
+    "email": "fiona@kappa.com",
+    "source": "Referral",
+    "score": 74,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-059",
+    "name": "George Souza",
+    "company": "Lambda Inc",
+    "email": "george@lambda.io",
+    "source": "Ad",
+    "score": 69,
+    "status": "Lost"
+  },
+  {
+    "id": "L-060",
+    "name": "Hannah Silva",
+    "company": "Mu Ltd",
+    "email": "hannah@mu.com",
+    "source": "Event",
+    "score": 92,
+    "status": "New"
+  },
+  {
+    "id": "L-061",
+    "name": "Ian Martins",
+    "company": "Nu Co",
+    "email": "ian@nu.com",
+    "source": "Website",
+    "score": 79,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-062",
+    "name": "Julia Lima",
+    "company": "Xi Group",
+    "email": "julia@xi.org",
+    "source": "Referral",
+    "score": 65,
+    "status": "Lost"
+  },
+  {
+    "id": "L-063",
+    "name": "Kevin Pereira",
+    "company": "Omicron SA",
+    "email": "kevin@omicron.com",
+    "source": "Ad",
+    "score": 83,
+    "status": "New"
+  },
+  {
+    "id": "L-064",
+    "name": "Lara Costa",
+    "company": "Pi Ltd",
+    "email": "lara@pi.net",
+    "source": "Event",
+    "score": 71,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-065",
+    "name": "Michael Santos",
+    "company": "Rho Corp",
+    "email": "michael@rho.com",
+    "source": "Website",
+    "score": 87,
+    "status": "New"
+  },
+  {
+    "id": "L-066",
+    "name": "Nina Souza",
+    "company": "Sigma LLC",
+    "email": "nina@sigma.io",
+    "source": "Referral",
+    "score": 70,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-067",
+    "name": "Oscar Lima",
+    "company": "Tau Inc",
+    "email": "oscar@tau.com",
+    "source": "Ad",
+    "score": 75,
+    "status": "Lost"
+  },
+  {
+    "id": "L-068",
+    "name": "Paula Martins",
+    "company": "Upsilon Ltd",
+    "email": "paula@upsilon.net",
+    "source": "Event",
+    "score": 94,
+    "status": "New"
+  },
+  {
+    "id": "L-069",
+    "name": "Quincy Silva",
+    "company": "Phi Group",
+    "email": "quincy@phi.org",
+    "source": "Website",
+    "score": 81,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-070",
+    "name": "Rachel Santos",
+    "company": "Chi Co",
+    "email": "rachel@chi.com",
+    "source": "Referral",
+    "score": 66,
+    "status": "Lost"
+  },
+  {
+    "id": "L-071",
+    "name": "Steve Costa",
+    "company": "Psi SA",
+    "email": "steve@psi.com",
+    "source": "Ad",
+    "score": 89,
+    "status": "New"
+  },
+  {
+    "id": "L-072",
+    "name": "Tina Pereira",
+    "company": "Omega Ltd",
+    "email": "tina@omega.com",
+    "source": "Event",
+    "score": 73,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-073",
+    "name": "Uma Silva",
+    "company": "Alpha LLC",
+    "email": "uma@alpha.io",
+    "source": "Website",
+    "score": 84,
+    "status": "New"
+  },
+  {
+    "id": "L-074",
+    "name": "Victor Santos",
+    "company": "Beta Inc",
+    "email": "victor@beta.com",
+    "source": "Referral",
+    "score": 78,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-075",
+    "name": "Wendy Lima",
+    "company": "Gamma Corp",
+    "email": "wendy@gamma.com",
+    "source": "Ad",
+    "score": 91,
+    "status": "New"
+  },
+  {
+    "id": "L-076",
+    "name": "Xander Costa",
+    "company": "Delta LLC",
+    "email": "xander@delta.io",
+    "source": "Event",
+    "score": 62,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-077",
+    "name": "Yara Martins",
+    "company": "Epsilon Ltd",
+    "email": "yara@epsilon.com",
+    "source": "Website",
+    "score": 86,
+    "status": "New"
+  },
+  {
+    "id": "L-078",
+    "name": "Zane Silva",
+    "company": "Zeta Inc",
+    "email": "zane@zeta.org",
+    "source": "Referral",
+    "score": 67,
+    "status": "Lost"
+  },
+  {
+    "id": "L-079",
+    "name": "Amy Santos",
+    "company": "Eta Co",
+    "email": "amy@eta.com",
+    "source": "Ad",
+    "score": 80,
+    "status": "New"
+  },
+  {
+    "id": "L-080",
+    "name": "Brian Souza",
+    "company": "Theta Group",
+    "email": "brian@theta.net",
+    "source": "Event",
+    "score": 64,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-081",
+    "name": "Cindy Costa",
+    "company": "Iota LLC",
+    "email": "cindy@iota.com",
+    "source": "Website",
+    "score": 88,
+    "status": "New"
+  },
+  {
+    "id": "L-082",
+    "name": "David Martins",
+    "company": "Kappa Corp",
+    "email": "david@kappa.com",
+    "source": "Referral",
+    "score": 76,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-083",
+    "name": "Ella Lima",
+    "company": "Lambda Inc",
+    "email": "ella@lambda.io",
+    "source": "Ad",
+    "score": 70,
+    "status": "Lost"
+  },
+  {
+    "id": "L-084",
+    "name": "Felix Pereira",
+    "company": "Mu Ltd",
+    "email": "felix@mu.com",
+    "source": "Event",
+    "score": 93,
+    "status": "New"
+  },
+  {
+    "id": "L-085",
+    "name": "Gina Santos",
+    "company": "Nu Co",
+    "email": "gina@nu.com",
+    "source": "Website",
+    "score": 82,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-086",
+    "name": "Harry Souza",
+    "company": "Xi Group",
+    "email": "harry@xi.org",
+    "source": "Referral",
+    "score": 69,
+    "status": "Lost"
+  },
+  {
+    "id": "L-087",
+    "name": "Isla Costa",
+    "company": "Omicron SA",
+    "email": "isla@omicron.com",
+    "source": "Ad",
+    "score": 85,
+    "status": "New"
+  },
+  {
+    "id": "L-088",
+    "name": "Jake Martins",
+    "company": "Pi Ltd",
+    "email": "jake@pi.net",
+    "source": "Event",
+    "score": 74,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-089",
+    "name": "Kara Silva",
+    "company": "Rho Corp",
+    "email": "kara@rho.com",
+    "source": "Website",
+    "score": 89,
+    "status": "New"
+  },
+  {
+    "id": "L-090",
+    "name": "Liam Santos",
+    "company": "Sigma LLC",
+    "email": "liam@sigma.io",
+    "source": "Referral",
+    "score": 71,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-091",
+    "name": "Mila Souza",
+    "company": "Tau Inc",
+    "email": "mila@tau.com",
+    "source": "Ad",
+    "score": 78,
+    "status": "Lost"
+  },
+  {
+    "id": "L-092",
+    "name": "Noah Costa",
+    "company": "Upsilon Ltd",
+    "email": "noah@upsilon.net",
+    "source": "Event",
+    "score": 95,
+    "status": "New"
+  },
+  {
+    "id": "L-093",
+    "name": "Olivia Martins",
+    "company": "Phi Group",
+    "email": "olivia@phi.org",
+    "source": "Website",
+    "score": 83,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-094",
+    "name": "Peter Lima",
+    "company": "Chi Co",
+    "email": "peter@chi.com",
+    "source": "Referral",
+    "score": 68,
+    "status": "Lost"
+  },
+  {
+    "id": "L-095",
+    "name": "Quinn Santos",
+    "company": "Psi SA",
+    "email": "quinn@psi.com",
+    "source": "Ad",
+    "score": 87,
+    "status": "New"
+  },
+  {
+    "id": "L-096",
+    "name": "Rachel Souza",
+    "company": "Omega Ltd",
+    "email": "rachel@omega.com",
+    "source": "Event",
+    "score": 72,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-097",
+    "name": "Sam Costa",
+    "company": "Alpha LLC",
+    "email": "sam@alpha.io",
+    "source": "Website",
+    "score": 86,
+    "status": "New"
+  },
+  {
+    "id": "L-098",
+    "name": "Tara Martins",
+    "company": "Beta Inc",
+    "email": "tara@beta.com",
+    "source": "Referral",
+    "score": 77,
+    "status": "Contacted"
+  },
+  {
+    "id": "L-099",
+    "name": "Ulysses Lima",
+    "company": "Gamma Corp",
+    "email": "ulysses@gamma.com",
+    "source": "Ad",
+    "score": 92,
+    "status": "New"
+  },
+  {
+    "id": "L-100",
+    "name": "Vera Santos",
+    "company": "Delta LLC",
+    "email": "vera@delta.io",
+    "source": "Event",
+    "score": 64,
+    "status": "Contacted"
+  }
+]
