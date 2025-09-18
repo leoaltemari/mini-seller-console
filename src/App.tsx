@@ -1,8 +1,13 @@
 
-function App() {
+
+import { OpportunitiesProvider } from './context/OpportunitiesContext';
+import LeadsPage from './pages/LeadsPage';
+
+
+export default function App() {
   return (
-    <h1>Hello World!</h1>
+    <OpportunitiesProvider>
+      <LeadsPage />
+    </OpportunitiesProvider>
   )
 }
-
-export default App
