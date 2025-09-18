@@ -15,6 +15,7 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
   const [draft, setDraft] = useState<Lead | null>(null);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -25,6 +26,7 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
   function handleEmailChange(email: string) {
     if (!draft) return;
 
+    setError(null)
     setDraft({ ...draft, email });
 
     if (email && !isValidEmail(email)) {
@@ -35,18 +37,19 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
   async function handleSave(): Promise<void> {
     setError(null);
 
-    if (!draft || error) {
-      return;
-    }
+    if (!draft || error) return;
 
     setSaving(true);
 
     try {
-      await onSave(draft);
+      await onSave(draft).then(() => {
+        setSuccess('Lead saved successfully!');
+        setTimeout(() => setSuccess(null), 3000);
+      });
     } catch (e: unknown) {
       const message = e instanceof Error ? e.message : 'Failed to save';
       setError(message);
-      setTimeout(() => setError(null), 3000);
+      setTimeout(() => setError(null), 2000);
     } finally {
       setSaving(false);
     }
@@ -77,6 +80,7 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
         </h2>
 
         <div className="space-y-4">
+          {/* Email */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Email
@@ -92,6 +96,7 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
             />
           </div>
 
+          {/* Status */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Status
@@ -114,6 +119,7 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
             </select>
           </div>
 
+          {/* Buttons */}
           <div className="pt-2 flex gap-2">
             <button
               type="button"
@@ -124,7 +130,11 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
               onClick={handleSave}
               disabled={saving || !!error}
             >
-              Save
+              {
+                saving
+                  ? <div className="w-5 h-5 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin" />
+                  : 'Save'
+              }
             </button>
 
             <button
@@ -143,23 +153,43 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
               type="button"
               className="
                 cursor-pointer ml-auto px-4 py-2 text-sm font-medium rounded-lg bg-blue-600
-                text-white shadow-smhover:bg-blue-700 active:bg-blue-800 disabled:opacity-50
+                text-white hover:bg-blue-700 active:bg-blue-800 disabled:opacity-50
               "
-              onClick={() => onConvert(draft, draft.email)}
+              onClick={() => { setDraft({...draft, status: 'Converted'}); onConvert(draft, draft.email) }}
             >
               Convert Lead
             </button>
           </div>
 
-          <div
-            role="alert"
-            className={`
-              rounded-lg bg-red-50 border border-red-300 text-red-700 px-3 py-2 text-sm transform transition duration-200 ease-out
-              ${error ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}
-            `}
-          >
-            { error }
-          </div>
+          {/* Error Message */}
+          {
+            error &&
+            <div
+              role="alert"
+              className={`
+                rounded-lg bg-red-50 border border-red-300 text-red-700 px-3 py-2 text-sm
+                transform transition duration-200 ease-out
+                ${error ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}
+              `}
+            >
+              {error}
+            </div>
+          }
+
+          {/* Success Message */}
+          {
+            success &&
+            <div
+              role="status"
+              className={`
+                rounded-lg bg-green-50 border border-green-300 text-green-700 px-3 py-2 text-sm
+                transform transition duration-200 ease-out
+                ${success ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}
+              `}
+            >
+              {success}
+            </div>
+          }
         </div>
       </div>
     </div>

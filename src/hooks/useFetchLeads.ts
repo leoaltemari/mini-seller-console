@@ -77,22 +77,24 @@ export function useFetchLeads(pagination: PaginationParams = {}) {
   async function saveLead(updatedLead: Lead): Promise<void> {
     if (!leads) return;
 
-    /** Adds into Opportunities list if the status changes to `Converted` */
-    if (updatedLead.status === 'Converted') {
-      convertLead(updatedLead);
-      return;
-    }
+    await saveSingleLead()
+      .then(() => {
+        /** Adds into Opportunities list if the status changes to `Converted` */
+        if (updatedLead.status === 'Converted') {
+          convertLead(updatedLead);
+          return;
+        }
 
-    /** Always remove from opportunity list if the lead status is not `Converted` */
-    removeOpportunity(getOppIdByLeadId(updatedLead.id));
-    const newLeads = leads.map(lead => (lead.id === updatedLead.id ? updatedLead : lead));
+        /** Always remove from opportunity list if the lead status is not `Converted` */
+        removeOpportunity(getOppIdByLeadId(updatedLead.id));
+        const newLeads = leads.map(lead => (lead.id === updatedLead.id ? updatedLead : lead));
 
-    setLeads(newLeads);
-
-    await saveSingleLead().catch(err => {
-      setLeads(leads); // rollback
-      throw err;
-    });
+        setLeads(newLeads);
+      })
+      .catch(err => {
+        setLeads(leads); // rollback
+        throw err;
+      });
   }
 
   /** Convert a lead into an Opportunity */

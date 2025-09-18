@@ -1,5 +1,8 @@
 import { leadStatusColors } from '@constants/status-colors';
+import { useOpportunities } from '@context/OpportunitiesContext';
 import { Lead } from '@models/leads';
+
+import { useMemo } from 'react';
 
 import StatusBadge from './StatusBadge';
 
@@ -11,6 +14,21 @@ interface Props {
 }
 
 export default function LeadsTable({ leads, onRowClick, lastLeadRef }: Props) {
+  const { opportunities } = useOpportunities();
+
+  /** Check wich leads are converted to show the correct status */
+  const leadsMapped = useMemo(() => {
+    return leads.map(lead => {
+      const associatedOpportunity = opportunities.find(
+        opportunity => opportunity.accountName === lead.email
+      );
+      return {
+        ...lead,
+        status: associatedOpportunity ? 'Converted' : lead.status,
+      };
+    });
+  }, [leads, opportunities])
+
   return (
     <div className="overflow-auto rounded-xl shadow border border-gray-200">
       <table className="min-w-full table-auto border-collapse">
@@ -25,7 +43,7 @@ export default function LeadsTable({ leads, onRowClick, lastLeadRef }: Props) {
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200">
-          {!leads.length && (
+          {!leadsMapped.length && (
             <tr>
               <td
                 colSpan={6}
@@ -36,10 +54,10 @@ export default function LeadsTable({ leads, onRowClick, lastLeadRef }: Props) {
             </tr>
           )}
 
-          {leads.map((lead, index) => (
+          {leadsMapped.map((lead, index) => (
             <tr
               key={lead.id}
-              ref={index === leads.length - 1 ? lastLeadRef : null}
+              ref={index === leadsMapped.length - 1 ? lastLeadRef : null}
               className="cursor-pointer even:bg-gray-50 hover:bg-blue-50 transition-colors"
               onClick={() => onRowClick(lead)}
             >
