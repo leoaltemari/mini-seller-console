@@ -54,6 +54,8 @@ export function useFetchLeads(pagination: PaginationParams = {}) {
     query: '',
   });
 
+  const { addOpportunity, removeOpportunity } = useOpportunities();
+
   /** Fetch new Leads */
   useEffect(() => {
     setLoading(true);
@@ -67,11 +69,23 @@ export function useFetchLeads(pagination: PaginationParams = {}) {
       .finally(() => setLoading(false));
   }, [pagination]);
 
+  function getOppIdByLeadId(leadId: string): string {
+    return `O-${leadId.replace('L-', '')}`;
+  }
+
   /** Saves a lead after editing it */
-  async function saveLead(updated: Lead): Promise<void> {
+  async function saveLead(updatedLead: Lead): Promise<void> {
     if (!leads) return;
 
-    const newLeads = leads.map(lead => (lead.id === updated.id ? updated : lead));
+    /** Adds into Opportunities list if the status changes to `Converted` */
+    if (updatedLead.status === 'Converted') {
+      convertLead(updatedLead);
+      return;
+    }
+
+    /** Always remove from opportunity list if the lead status is not `Converted` */
+    removeOpportunity(getOppIdByLeadId(updatedLead.id));
+    const newLeads = leads.map(lead => (lead.id === updatedLead.id ? updatedLead : lead));
 
     setLeads(newLeads);
 
@@ -80,8 +94,6 @@ export function useFetchLeads(pagination: PaginationParams = {}) {
       throw err;
     });
   }
-
-  const { addOpportunity } = useOpportunities();
 
   /** Convert a lead into an Opportunity */
   function convertLead(lead: Lead, accountName?: string, amount?: number): void {
@@ -92,7 +104,7 @@ export function useFetchLeads(pagination: PaginationParams = {}) {
     if (leadIsAlreadyAnOpportunity) return;
 
     addOpportunity({
-      id: `O-${lead.id.replace('L-', '')}`,
+      id: getOppIdByLeadId(lead.id),
       name: lead.name,
       stage: 'Prospecting',
       amount,

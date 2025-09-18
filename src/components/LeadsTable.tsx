@@ -16,7 +16,6 @@ export default function LeadsTable({ leads, onRowClick, lastLeadRef }: Props) {
       <table className="min-w-full table-auto border-collapse">
         <thead className="bg-gray-50 sticky top-0 z-10">
           <tr>
-            <th className="text-left p-3 text-sm font-semibold text-gray-600">Id</th>
             <th className="text-left p-3 text-sm font-semibold text-gray-600">Name</th>
             <th className="text-left p-3 text-sm font-semibold text-gray-600">Company</th>
             <th className="text-left p-3 text-sm font-semibold text-gray-600">Email</th>
@@ -29,7 +28,7 @@ export default function LeadsTable({ leads, onRowClick, lastLeadRef }: Props) {
           {!leads.length && (
             <tr>
               <td
-                colSpan={7}
+                colSpan={6}
                 className="p-6 text-center text-gray-500 text-sm"
               >
                 No leads found
@@ -44,7 +43,6 @@ export default function LeadsTable({ leads, onRowClick, lastLeadRef }: Props) {
               className="cursor-pointer even:bg-gray-50 hover:bg-blue-50 transition-colors"
               onClick={() => onRowClick(lead)}
             >
-              <td className="p-3 text-sm text-gray-700">{lead.id}</td>
               <td className="p-3 text-sm font-medium text-gray-900">{lead.name}</td>
               <td className="p-3 text-sm text-gray-700">{lead.company}</td>
               <td className="p-3 text-sm text-gray-600">{lead.email}</td>

@@ -72,7 +72,7 @@ export default function LeadsPage() {
 
   return (
     <div className="bg-gray-100 min-h-screen p-6">
-      <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="md:col-span-2 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
           <h1 className="text-2xl font-semibold text-gray-700 p-5 border-b">
             Leads

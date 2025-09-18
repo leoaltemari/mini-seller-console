@@ -8,6 +8,7 @@ import React, { createContext, JSX, useContext } from 'react';
 interface OppContextType {
   opportunities: Opportunity[];
   addOpportunity: (opp: Opportunity) => void;
+  removeOpportunity: (oppId: string) => void;
 }
 
 const OppContext = createContext<OppContextType | null>(null);
@@ -29,8 +30,12 @@ export function OpportunitiesProvider({ children }: { children: React.ReactNode 
     setOpportunities([...opportunities, opp]);
   }
 
+  function removeOpportunity(oppId: string): void {
+    setOpportunities(opportunities.filter(opp => opp.id !== oppId));
+  }
+
   return (
-    <OppContext.Provider value={{ opportunities, addOpportunity }}>
+    <OppContext.Provider value={{ opportunities, addOpportunity, removeOpportunity }}>
       {children}
     </OppContext.Provider>
   )
