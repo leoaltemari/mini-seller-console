@@ -1,7 +1,12 @@
 import { SIMULATED_LATENCY } from '@constants/api-simulation';
-import { Lead, LeadsResponse } from '@models/leads';
-import { PaginationParams } from '@models/pagination';
+import { Lead, LeadPreferences, LeadsResponse } from '@models/leads';
 import { simulateFailure } from '@utils/simulateFailure';
+
+import allLeads from '../../public/leads.json';
+
+function sortByScore(a: Lead, b: Lead, desc: boolean) {
+  return desc ? b.score - a.score : a.score - b.score;
+}
 
 /**
  * Function to simulate an API call to fetch leads data with Pagination.
@@ -11,27 +16,30 @@ import { simulateFailure } from '@utils/simulateFailure';
 export async function getLeads({
   page = 1,
   pageSize = 20,
-}: PaginationParams = {}): Promise<LeadsResponse> {
+  filterStatus,
+  sortDesc = false,
+  query = '',
+}: LeadPreferences): Promise<LeadsResponse> {
   return new Promise((resolve, reject) => {
     setTimeout(async () => {
       try {
-        /** Simulates an HTTP request with pagination, but will always bring all items when using a .json file as DB */
-        const response = await fetch(
-          'https://leoaltemari.github.io/mini-seller-console/leads.json'
-        );
+        const filteredLeads = (allLeads as Lead[])
+          .filter(lead => {
+            const matchesQuery =
+              !query ||
+              lead.name.toLowerCase().includes(query) ||
+              lead.company.toLowerCase().includes(query);
+            const matchesStatus = !filterStatus || lead.status === filterStatus;
 
-        if (!response.ok) {
-          throw new Error(`HTTP error on GET leads! status: ${response.status}`);
-        }
+            return matchesQuery && matchesStatus;
+          })
+          .sort((a, b) => sortByScore(a, b, sortDesc));
 
-        const allLeads: Lead[] = await response.json();
-        const total = allLeads.length;
-
+        const total = filteredLeads.length;
         const start = (page - 1) * pageSize;
-        const end = start + pageSize;
-        const leads = allLeads.slice(start, end);
+        const end = start + pageSize > total ? total : start + pageSize;
 
-        resolve({ data: leads, total });
+        resolve({ data: filteredLeads.slice(0, end), total });
       } catch {
         reject(new Error('Failed to GET leads'));
       }

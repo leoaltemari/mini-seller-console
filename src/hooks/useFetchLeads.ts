@@ -60,14 +60,14 @@ export function useFetchLeads(pagination: PaginationParams = {}) {
   useEffect(() => {
     setLoading(true);
 
-    getLeads(pagination)
+    getLeads({ ...pagination, ...prefs })
       .then(({ data, total }) => {
-        setLeads(previusLeads => [...previusLeads, ...data]);
+        setLeads(data);
         setHasMore(data.length > 0 && data.length < total);
       })
       .catch(e => setError((e as Error).message))
       .finally(() => setLoading(false));
-  }, [pagination]);
+  }, [pagination, prefs]);
 
   function getOppIdByLeadId(leadId: string): string {
     return `O-${leadId.replace('L-', '')}`;

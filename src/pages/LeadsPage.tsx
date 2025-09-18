@@ -5,12 +5,8 @@ import OpportunitiesTable from '@components/OpportunitiesTable';
 import { useFetchLeads } from '@hooks/useFetchLeads';
 import { Lead } from '@models/leads';
 
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
-
-function sortByScore(a: Lead, b: Lead, desc: boolean) {
-  return desc ? b.score - a.score : a.score - b.score;
-}
 
 export default function LeadsPage() {
   const [selected, setSelected] = useState<Lead | null>(null);
@@ -48,21 +44,6 @@ export default function LeadsPage() {
     }
   }, [loading, hasMore]);
 
-  const filteredLeads = useMemo(() => {
-    if (!leads) return [];
-
-    const query = (prefs.query || '').toLowerCase();
-
-    return leads
-      .filter(lead => {
-        const matchesQuery = !query || lead.name.toLowerCase().includes(query) || lead.company.toLowerCase().includes(query);
-        const matchesStatus = !prefs.filterStatus || lead.status === prefs.filterStatus;
-
-        return matchesQuery && matchesStatus;
-      })
-      .sort((a, b) => sortByScore(a, b, prefs.sortDesc));
-  }, [leads, prefs]);
-
   if (error)
     return (
       <div className="p-8 text-center text-red-600 bg-red-50 rounded-lg shadow">
@@ -86,7 +67,7 @@ export default function LeadsPage() {
               onQueryChange={query => setPrefs({ ...prefs, query: query })}
             />
             <LeadsTable
-              leads={filteredLeads}
+              leads={leads}
               onRowClick={setSelected}
               lastLeadRef={loadMoreLeads}
             />
