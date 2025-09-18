@@ -27,32 +27,36 @@ export default function LeadsTableFilter({
         "
       />
 
-      <select
-        value={preferences.filterStatus ?? ''}
-        onChange={(e) => onFilterChange(e.target.value || null)}
-        className="
-          cursor-pointer px-3 py-2 border border-gray-300 rounded-lg text-sm bg-white
-          focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500
-        "
-      >
-        <option value="">All Statuses</option>
-        <option>New</option>
-        <option>Contacted</option>
-        <option>Qualified</option>
-        <option>Lost</option>
-        <option>Converted</option>
-      </select>
+      <div className="flex gap-3 w-full sm:w-auto">
+        <select
+          value={preferences.filterStatus ?? ''}
+          onChange={(e) => onFilterChange(e.target.value || null)}
+          className="
+            cursor-pointer px-3 py-2 border border-gray-300 rounded-lg text-sm bg-white
+            focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500
+            w-1/2 sm:w-auto
+          "
+        >
+          <option value="">All Statuses</option>
+          <option>New</option>
+          <option>Contacted</option>
+          <option>Qualified</option>
+          <option>Lost</option>
+          <option>Converted</option>
+        </select>
 
-      <button
-        type="button"
-        onClick={onSortToggle}
-        className="
-          cursor-pointer px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg
-          shadow-sm hover:bg-blue-700 active:bg-blue-800 focus:outline-none
-        "
-      >
-        Sort Score {preferences.sortDesc ? '↓' : '↑'}
-      </button>
+        <button
+          type="button"
+          onClick={onSortToggle}
+          className="
+            cursor-pointer px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg
+            shadow-sm hover:bg-blue-700 active:bg-blue-800 focus:outline-none
+            w-1/2 sm:w-auto
+          "
+        >
+          Sort Score {preferences.sortDesc ? '↓' : '↑'}
+        </button>
+      </div>
     </div>
   );
 }
