@@ -1,6 +1,7 @@
 import { Lead } from '@models/leads';
 import { simulateFailure } from '@utils/simulateFailure';
 
+import allLeads from '../../../public/leads.json';
 import { getLeads, saveSingleLead } from '../leadsService';
 
 jest.mock('@utils/simulateFailure');
@@ -8,7 +9,6 @@ jest.mock('@utils/simulateFailure');
 describe('leadsService', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    global.fetch = jest.fn();
     jest.useFakeTimers();
   });
 
@@ -17,80 +17,82 @@ describe('leadsService', () => {
   });
 
   describe('getLeads', () => {
-    const allLeads: Lead[] = [
-      {
-        id: 'L-1',
-        name: 'Lead 1',
-        company: 'C1',
-        email: 'l1@email.com',
-        source: 'Website',
-        score: 10,
-        status: 'New',
-      },
-      {
-        id: 'L-2',
-        name: 'Lead 2',
-        company: 'C2',
-        email: 'l2@email.com',
-        source: 'Referral',
-        score: 20,
-        status: 'Contacted',
-      },
-      {
-        id: 'L-3',
-        name: 'Lead 3',
-        company: 'C3',
-        email: 'l3@email.com',
-        source: 'Website',
-        score: 15,
-        status: 'New',
-      },
-    ];
-
     it('fetches paginated leads successfully', async () => {
-      (global.fetch as jest.Mock).mockResolvedValue({
-        ok: true,
-        json: jest.fn().mockResolvedValue(allLeads),
+      const promise = getLeads({
+        page: 1,
+        pageSize: 2,
+        filterStatus: null,
+        sortDesc: false,
+        query: '',
       });
 
-      const promise = getLeads({ page: 1, pageSize: 2 });
+      // Run all timers to resolve the setTimeout
       jest.runAllTimers();
       const result = await promise;
 
-      expect(result.data).toHaveLength(2);
-      expect(result.total).toBe(3);
+      expect(result.data).toHaveLength(2); // first page of 2 items
+      expect(result.total).toBe((allLeads as Lead[]).length);
     });
 
     it('fetches leads with default pagination', async () => {
-      (global.fetch as jest.Mock).mockResolvedValue({
-        ok: true,
-        json: jest.fn().mockResolvedValue(allLeads),
+      const promise = getLeads({
+        page: 1,
+        pageSize: 20,
+        filterStatus: null,
+        sortDesc: false,
+        query: '',
       });
 
-      const promise = getLeads();
       jest.runAllTimers();
       const result = await promise;
 
-      expect(result.data).toHaveLength(3);
-      expect(result.total).toBe(3);
+      expect(result.data).toHaveLength(20); // all items since pageSize >= total
+      expect(result.total).toBe((allLeads as Lead[]).length);
     });
 
-    it('rejects when fetch fails', async () => {
-      (global.fetch as jest.Mock).mockRejectedValue(new Error('Network error'));
+    it('applies query filtering', async () => {
+      const query = (allLeads as Lead[])[0].name; // use first lead's name
+      const promise = getLeads({
+        page: 1,
+        pageSize: 20,
+        filterStatus: null,
+        sortDesc: false,
+        query,
+      });
 
-      const promise = getLeads({ page: 1, pageSize: 2 });
       jest.runAllTimers();
+      const result = await promise;
 
-      await expect(promise).rejects.toThrow('Failed to GET leads');
+      expect(
+        result.data.every(lead => lead.name.includes(query) || lead.company.includes(query))
+      ).toBe(true);
     });
 
-    it('rejects when response is not ok', async () => {
-      (global.fetch as jest.Mock).mockResolvedValue({ ok: false, status: 500 });
+    it('applies status filtering', async () => {
+      const filterStatus = (allLeads as Lead[])[0].status;
+      const promise = getLeads({ page: 1, pageSize: 20, filterStatus, sortDesc: false, query: '' });
 
-      const promise = getLeads();
       jest.runAllTimers();
+      const result = await promise;
 
-      await expect(promise).rejects.toThrow('Failed to GET leads');
+      expect(result.data.every(lead => lead.status === filterStatus)).toBe(true);
+    });
+
+    it('applies sort descending by score', async () => {
+      const promise = getLeads({
+        page: 1,
+        pageSize: 20,
+        filterStatus: null,
+        sortDesc: true,
+        query: '',
+      });
+
+      jest.runAllTimers();
+      const result = await promise;
+
+      const scores = result.data.map(lead => lead.score);
+      const sortedScores = [...scores].sort((a, b) => b - a);
+      expect(scores).toEqual(sortedScores);
     });
   });
 
