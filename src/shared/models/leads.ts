@@ -1,5 +1,6 @@
 import { PaginatedResponse } from './pagination';
 
+export type LeadsResponse = PaginatedResponse<Lead[]>;
 export type LeadStatus = 'New' | 'Contacted' | 'Qualified' | 'Lost' | 'Converted';
 
 export interface Lead {
@@ -12,4 +13,8 @@ export interface Lead {
   status: LeadStatus;
 }
 
-export type LeadsResponse = PaginatedResponse<Lead[]>;
+export interface LeadPreferences {
+  sortDesc: boolean;
+  filterStatus: string | null;
+  query: string;
+}

@@ -1,5 +1,6 @@
 import LeadDetailSlide from '@components/LeadDetailSlide';
 import LeadsTable from '@components/LeadsTable';
+import LeadsTableFilter from '@components/LeadsTableFilter';
 import OpportunitiesTable from '@components/OpportunitiesTable';
 import { useFetchLeads } from '@hooks/useFetchLeads';
 import { Lead } from '@models/leads';
@@ -20,7 +21,7 @@ export default function LeadsPage() {
   const observer = useRef<IntersectionObserver | null>(null);
 
   /** handles infinity scroll behaviour */
-  const lastLeadRef = useCallback((node: HTMLTableRowElement | null) => {
+  const loadMoreLeads = useCallback((node: HTMLTableRowElement | null) => {
     if (loading) return;
 
     if (observer.current) {
@@ -61,17 +62,19 @@ export default function LeadsPage() {
         <div className="md:col-span-2 bg-white rounded shadow">
           <h1 className="text-2xl p-4 border-b">Leads</h1>
 
-          <LeadsTable
-            leads={filteredLeads}
-            onRowClick={setSelected}
-            onSortToggle={() => setPrefs({ ...prefs, sortDesc: !prefs.sortDesc })}
-            sortDesc={prefs.sortDesc}
-            filterStatus={prefs.filterStatus}
-            onFilterChange={filter => setPrefs({ ...prefs, filterStatus: filter })}
-            query={prefs.query}
-            onQueryChange={query => setPrefs({ ...prefs, query: query })}
-            lastLeadRef={lastLeadRef}
-          />
+          <div className="p-4">
+            <LeadsTableFilter
+              preferences={prefs}
+              onSortToggle={() => setPrefs({ ...prefs, sortDesc: !prefs.sortDesc })}
+              onFilterChange={filter => setPrefs({ ...prefs, filterStatus: filter })}
+              onQueryChange={query => setPrefs({ ...prefs, query: query })}
+            />
+            <LeadsTable
+              leads={filteredLeads}
+              onRowClick={setSelected}
+              lastLeadRef={loadMoreLeads}
+            />
+          </div>
 
           {loading && <div className="p-4 text-center">Loading more leads...</div>}
         </div>

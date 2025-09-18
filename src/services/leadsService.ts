@@ -12,6 +12,7 @@ export async function fetchLeads({
   page = 1,
   pageSize = 20,
 }: PaginationParams = {}): Promise<LeadsResponse> {
+  console.log('Fetching leads...', { page, pageSize });
   return new Promise((resolve, reject) => {
     setTimeout(async () => {
       try {

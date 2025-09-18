@@ -1,6 +1,6 @@
 import { useOpportunities } from '@context/OpportunitiesContext';
 import { useLocalStorage } from '@hooks/useLocalStorage';
-import { Lead } from '@models/leads';
+import { Lead, LeadPreferences } from '@models/leads';
 import { PaginationParams } from '@models/pagination';
 import { fetchLeads, saveSingleLead } from '@services/leadsService';
 
@@ -48,7 +48,7 @@ export function useFetchLeads(pagination: PaginationParams = {}) {
   const [error, setError] = useState<string | null>(null);
   const [hasMore, setHasMore] = useState(true);
 
-  const [prefs, setPrefs] = useLocalStorage('user:prefs', {
+  const [prefs, setPrefs] = useLocalStorage<LeadPreferences>('user:prefs', {
     filterStatus: null as string | null,
     sortDesc: true,
     query: '',
