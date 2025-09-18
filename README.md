@@ -1,69 +1,130 @@
-# React + TypeScript + Vite
+# Leads & Opportunities Management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
+  <a href="https://www.linkedin.com/in/leonardo-altemari-008a8017b/">
+    <img alt="leonardo-altemari" src="https://img.shields.io/badge/made%20by-Leonardo%20Altemari-brightgreen" />
+  </a>
 
-Currently, two official plugins are available:
+  <a href="https://github.com/leoaltemari/leads-opportunities/blob/development/LICENSE">
+    <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen" />
+  </a>
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🚀 Description
 
-## Expanding the ESLint configuration
+<div style="margin-bottom: 16px;" align="center">
+  <img alt="" width="600px" src="./public/github/ui-example.png" />
+</div>
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This is a **web application to manage leads and opportunities**, featuring:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Viewing leads and opportunities in tables
+- Filtering, searching, and sorting leads
+- Converting leads into opportunities
+- Infinite scroll for paginated leads
+- Inline editing and saving of leads
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+The project is built with **React**, **TypeScript**, **Tailwind** and **React Hooks** for state management.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 📜 Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Unit Tests](#unit-tests)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+---
+
+## 🔥 Installation
+
+1. Install Node.js and npm if not already installed.
+2. Clone the repository:
+  ```bash
+    git clone https://github.com/leoaltemari/mini-seller-console.git
+  ```
+3. Navigate to the project directory:
+  ```bash
+   cd mini-seller-console
+  ```
+4. Install dependencies:
+  ```bash
+   npm install
+  ```
+---
+
+## 🌐 Usage
+
+1. Run the development server:
+  ```bash
+   npm run dev
+  ```
+2. Open your browser and navigate to: http://localhost:5173/
+3. Use the interface to:
+   - View leads and opportunities
+   - Filter, sort, and search leads
+   - Convert leads into opportunities
+   - Save and edit leads
+
+---
+
+## 🧪 Unit Tests
+
+Unit tests are implemented using **Jest** and **React Testing Library**. The tests cover:
+
+- Custom hooks (`useFetchLeads`, `useLocalStorage`)
+- Context providers (`OpportunitiesContext`)
+- Components (`LeadsTable`, `LeadsTableFilter`, `LeadDetailSlide`, `OpportunitiesTable`)
+- Utility functions (`isValidEmail`, `simulateFailure`)
+- Services (`getLeads`, `saveSingleLead`)
+
+### Run tests
+1. Without coverage status
+```bash
+  npm run test
+```
+2. With coverage status
+```bash
+  npm run test:coverage
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Coverage
+<div style="margin-bottom: 16px;" align="center">
+  <img alt="" width="600px" src="./public/github/coverage.png" />
+</div>
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- The project aims for **75% coverage** for lines, branches, functions, and statements.
+- Tests include mocking external dependencies such as fetch requests, local storage, and context hooks.
+- React state updates are wrapped in `act(...)` to avoid warnings.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 👥 Contributing
+
+1. Fork the repository.
+2. Create a feature branch:
+   git checkout -b feat/feature-name
+3. Commit your changes:
+   git commit -m "Description of changes"
+4. Push to the branch:
+   git push origin feat/feature-name
+5. Create a pull request.
+
+---
+
+## 🔐 License
+
+[MIT License](LICENSE)
+
+---
+
+## 📱 Contact
+
+For questions or support, contact:
+
+- **Author**: Leonardo Altemari Nogueira
+- **Linkedin**: [Leonardo Altemari](https://www.linkedin.com/in/leonardo-altemari/)
+- **Email**: leo.altemari@gmail.com
