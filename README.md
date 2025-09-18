@@ -11,10 +11,11 @@
 </div>
 
 ### 🚀 Description
-
 <div style="margin-bottom: 16px;" align="center">
   <img alt="" width="600px" src="./public/github/ui-example.png" />
 </div>
+
+Project URL: https://leoaltemari.github.io/mini-seller-console/
 
 This is a **web application to manage leads and opportunities**, featuring:
 
