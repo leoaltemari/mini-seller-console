@@ -1,11 +1,11 @@
 # Leads & Opportunities Management
 
 <div align="center">
-  <a href="https://www.linkedin.com/in/leonardo-altemari-008a8017b/">
+  <a href="https://www.linkedin.com/in/leonardo-altemari">
     <img alt="leonardo-altemari" src="https://img.shields.io/badge/made%20by-Leonardo%20Altemari-brightgreen" />
   </a>
 
-  <a href="https://github.com/leoaltemari/leads-opportunities/blob/development/LICENSE">
+  <a href="https://github.com/leoaltemari/mini-seller-console/blob/master/LICENSE">
     <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen" />
   </a>
 </div>
