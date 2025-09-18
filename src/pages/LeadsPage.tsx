@@ -72,9 +72,9 @@ export default function LeadsPage() {
 
   return (
     <div className="bg-gray-100 min-h-screen p-6">
-      <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="md:col-span-2 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-          <h1 className="text-2xl font-semibold text-gray-700 p-5 border-b">
+      <div className="mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div className="order-1 lg:order-0 lg:col-span-2 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+          <h1 className="text-2xl text-center font-semibold text-gray-700 p-5 border-b">
             Leads
           </h1>
 
@@ -100,8 +100,8 @@ export default function LeadsPage() {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-          <h1 className="text-2xl font-semibold text-gray-700 p-5 border-b">
+        <div className="order-0 lg:order-1 lg:col-span-2 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+          <h1 className="text-2xl text-center font-semibold text-gray-700 p-5 border-b">
             Opportunities
           </h1>
           <div className="p-5">
