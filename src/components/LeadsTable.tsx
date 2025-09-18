@@ -51,7 +51,6 @@ export default function LeadsTable({ leads, onRowClick, onSortToggle, sortDesc, 
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
             <tr>
-              <th className="text-left p-2">Id</th>
               <th className="text-left p-2">Name</th>
               <th className="text-left p-2">Company</th>
               <th className="text-left p-2">Email</th>
@@ -64,7 +63,7 @@ export default function LeadsTable({ leads, onRowClick, onSortToggle, sortDesc, 
             {
               !leads.length && (
                 <tr>
-                  <td colSpan={7} className="p-4 text-center text-gray-500">No leads found</td>
+                  <td colSpan={6} className="p-4 text-center text-gray-500">No leads found</td>
                 </tr>
               )
             }
@@ -76,7 +75,6 @@ export default function LeadsTable({ leads, onRowClick, onSortToggle, sortDesc, 
                   className="cursor-pointer hover:bg-gray-200 h-16"
                   onClick={() => onRowClick(lead)}
                 >
-                  <td className="p-2">{lead.id}</td>
                   <td className="p-2">{lead.name}</td>
                   <td className="p-2">{lead.company}</td>
                   <td className="p-2">{lead.email}</td>
