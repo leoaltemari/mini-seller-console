@@ -73,7 +73,7 @@ export default function LeadsTable({ leads, onRowClick, onSortToggle, sortDesc, 
                 <tr
                   key={lead.id}
                   ref={index === leads.length - 1 ? lastLeadRef : null}
-                  className="cursor-pointer hover:bg-gray-50 h-16"
+                  className="cursor-pointer hover:bg-gray-200 h-16"
                   onClick={() => onRowClick(lead)}
                 >
                   <td className="p-2">{lead.id}</td>

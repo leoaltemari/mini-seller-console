@@ -85,8 +85,14 @@ export function useFetchLeads(pagination: PaginationParams = {}) {
 
   /** Convert a lead into an Opportunity */
   function convertLead(lead: Lead, accountName?: string, amount?: number): void {
+    const leadIsAlreadyAnOpportunity = leads?.some(
+      l => l.id === lead.id && l.status === 'Converted'
+    );
+
+    if (leadIsAlreadyAnOpportunity) return;
+
     addOpportunity({
-      id: `O-${Date.now()}`,
+      id: `O-${lead.id.replace('L-', '')}`,
       name: lead.name,
       stage: 'Prospecting',
       amount,
