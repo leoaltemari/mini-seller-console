@@ -16,7 +16,9 @@ export async function getLeads({
     setTimeout(async () => {
       try {
         /** Simulates an HTTP request with pagination, but will always bring all items when using a .json file as DB */
-        const response = await fetch('/leads.json');
+        const response = await fetch(
+          'https://leoaltemari.github.io/mini-seller-console/leads.json'
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error on GET leads! status: ${response.status}`);
