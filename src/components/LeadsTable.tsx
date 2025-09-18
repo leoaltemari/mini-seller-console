@@ -1,6 +1,6 @@
 import { leadStatusColors } from '@constants/status-colors';
 import { useOpportunities } from '@context/OpportunitiesContext';
-import { Lead } from '@models/leads';
+import { Lead, LeadStatus } from '@models/leads';
 
 import { useMemo } from 'react';
 
@@ -19,15 +19,21 @@ export default function LeadsTable({ leads, onRowClick, lastLeadRef }: Props) {
   /** Check wich leads are converted to show the correct status */
   const leadsMapped = useMemo(() => {
     return leads.map(lead => {
-      const associatedOpportunity = opportunities.find(
-        opportunity => opportunity.accountName === lead.email
-      );
+      const associatedOpportunity = opportunities.find(opportunity => opportunity.accountName === lead.email);
+
+      if (!associatedOpportunity && lead.status === 'Converted') {
+        return {
+          ...lead,
+          status: 'New' as LeadStatus,
+        };
+      }
+
       return {
         ...lead,
         status: associatedOpportunity ? 'Converted' : lead.status,
       };
     });
-  }, [leads, opportunities])
+  }, [leads, opportunities]);
 
   return (
     <div className="overflow-auto rounded-xl shadow border border-gray-200">
