@@ -84,11 +84,11 @@ Unit tests are implemented using **Jest** and **React Testing Library**. The tes
 ### Run tests
 1. Without coverage status
 ```bash
-  npm run test
+npm run test
 ```
 2. With coverage status
 ```bash
-  npm run test:coverage
+npm run test:coverage
 ```
 
 ### Coverage
