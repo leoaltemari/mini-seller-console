@@ -55,6 +55,16 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
     }
   }
 
+  function handleConvert(): void {
+    if (!draft || error) return;
+
+    setDraft({...draft, status: 'Converted'});
+    onConvert(draft, draft.email);
+
+    setSuccess('Lead converted successfully!');
+    setTimeout(() => setSuccess(null), 3000);
+  }
+
   if (!lead || !draft) return null;
 
   return (
@@ -155,7 +165,7 @@ export default function LeadDetailSlide({ lead, onClose, onSave, onConvert }: Pr
                 cursor-pointer ml-auto px-4 py-2 text-sm font-medium rounded-lg bg-blue-600
                 text-white hover:bg-blue-700 active:bg-blue-800 disabled:opacity-50
               "
-              onClick={() => { setDraft({...draft, status: 'Converted'}); onConvert(draft, draft.email) }}
+              onClick={handleConvert}
             >
               Convert Lead
             </button>
