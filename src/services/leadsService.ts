@@ -49,7 +49,7 @@ export async function fetchLeads({
 export async function saveSingleLead(): Promise<void> {
   return await new Promise<void>((resolve, reject) => {
     setTimeout(() => {
-      simulateFailure(resolve, () => reject(new Error('Simulated failure occurred')));
+      simulateFailure(resolve, () => reject(new Error('Failed to save lead')));
     }, SIMULATED_LATENCY);
   });
 }
