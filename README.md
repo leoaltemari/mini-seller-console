@@ -44,15 +44,15 @@ The project is built with **React**, **TypeScript**, **Tailwind** and **React Ho
 1. Install Node.js and npm if not already installed.
 2. Clone the repository:
   ```bash
-    git clone https://github.com/leoaltemari/mini-seller-console.git
+git clone https://github.com/leoaltemari/mini-seller-console.git
   ```
 3. Navigate to the project directory:
   ```bash
-   cd mini-seller-console
+cd mini-seller-console
   ```
 4. Install dependencies:
   ```bash
-   npm install
+npm install
   ```
 ---
 
@@ -60,7 +60,7 @@ The project is built with **React**, **TypeScript**, **Tailwind** and **React Ho
 
 1. Run the development server:
   ```bash
-   npm run dev
+npm run dev
   ```
 2. Open your browser and navigate to: http://localhost:5173/
 3. Use the interface to:
