@@ -5,7 +5,7 @@ export default function OpportunitiesTable() {
   const { opportunities } = useOpportunities();
 
   return (
-    <table className="p-4 min-w-full table-auto">
+    <table className="min-w-full table-auto">
       <thead className="bg-gray-100">
         <tr>
           <th className="text-left p-2">ID</th>

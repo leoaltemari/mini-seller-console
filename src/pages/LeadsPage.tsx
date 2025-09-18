@@ -57,7 +57,7 @@ export default function LeadsPage() {
 
   return (
     <div className="bg-gray-50 p-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="md:col-span-2 bg-white rounded shadow">
           <h1 className="text-2xl p-4 border-b">Leads</h1>
 
@@ -78,7 +78,9 @@ export default function LeadsPage() {
 
         <div className="bg-white rounded shadow">
           <h1 className="text-2xl p-4 border-b">Opportunities</h1>
-          <OpportunitiesTable />
+          <div className="p-4">
+            <OpportunitiesTable />
+          </div>
         </div>
       </div>
 
