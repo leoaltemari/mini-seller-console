@@ -16,11 +16,20 @@ export default function LeadsPage() {
   const [selected, setSelected] = useState<Lead | null>(null);
   const [pagination, setPagination] = useState({ page: 1, pageSize: 20 });
 
-  const { leads, loading, error, saveLead, convertLead, prefs, setPrefs, hasMore } = useFetchLeads(pagination);
+  const {
+    leads,
+    loading,
+    error,
+    saveLead,
+    convertLead,
+    prefs,
+    setPrefs,
+    hasMore,
+  } = useFetchLeads(pagination);
 
   const observer = useRef<IntersectionObserver | null>(null);
 
-  /** handles infinity scroll behaviour */
+  /** handles infinite scroll behaviour */
   const loadMoreLeads = useCallback((node: HTMLTableRowElement | null) => {
     if (loading) return;
 
@@ -45,24 +54,31 @@ export default function LeadsPage() {
     const query = (prefs.query || '').toLowerCase();
 
     return leads
-      .filter(l => {
-        const matchesQuery = !query || l.name.toLowerCase().includes(query) || l.company.toLowerCase().includes(query);
-        const matchesStatus = !prefs.filterStatus || l.status === prefs.filterStatus;
+      .filter(lead => {
+        const matchesQuery = !query || lead.name.toLowerCase().includes(query) || lead.company.toLowerCase().includes(query);
+        const matchesStatus = !prefs.filterStatus || lead.status === prefs.filterStatus;
 
         return matchesQuery && matchesStatus;
       })
       .sort((a, b) => sortByScore(a, b, prefs.sortDesc));
   }, [leads, prefs]);
 
-  if (error) return <div className="p-8 text-red-600">{error}</div>;
+  if (error)
+    return (
+      <div className="p-8 text-center text-red-600 bg-red-50 rounded-lg shadow">
+        {error}
+      </div>
+    );
 
   return (
-    <div className="bg-gray-50 p-6">
-      <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="md:col-span-2 bg-white rounded shadow">
-          <h1 className="text-2xl p-4 border-b">Leads</h1>
+    <div className="bg-gray-100 min-h-screen p-6">
+      <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="md:col-span-2 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+          <h1 className="text-2xl font-semibold text-gray-700 p-5 border-b">
+            Leads
+          </h1>
 
-          <div className="p-4">
+          <div className="p-5 space-y-4">
             <LeadsTableFilter
               preferences={prefs}
               onSortToggle={() => setPrefs({ ...prefs, sortDesc: !prefs.sortDesc })}
@@ -74,14 +90,20 @@ export default function LeadsPage() {
               onRowClick={setSelected}
               lastLeadRef={loadMoreLeads}
             />
-          </div>
 
-          {loading && <div className="p-4 text-center">Loading more leads...</div>}
+            {loading && (
+              <div className="flex justify-center py-4">
+                <div className="w-6 h-6 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin" />
+              </div>
+            )}
+          </div>
         </div>
 
-        <div className="bg-white rounded shadow">
-          <h1 className="text-2xl p-4 border-b">Opportunities</h1>
-          <div className="p-4">
+        <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+          <h1 className="text-2xl font-semibold text-gray-700 p-5 border-b">
+            Opportunities
+          </h1>
+          <div className="p-5">
             <OpportunitiesTable />
           </div>
         </div>
@@ -94,5 +116,5 @@ export default function LeadsPage() {
         onConvert={convertLead}
       />
     </div>
-  )
+  );
 }
